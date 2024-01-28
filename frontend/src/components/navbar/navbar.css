@@ -1,0 +1,10 @@
+.user-png{
+    width:30px;
+    height:30px;
+}
+.btn-nav{
+    background-color: black;
+    color:white;
+    border-radius:10px;
+    font-weight:bold;
+}
