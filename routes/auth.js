@@ -1,6 +1,6 @@
 const router=require('express').Router();
 const User=require('../models/user.js');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 //Sign UP
 
 router.post('/register',async(req,res)=>{
