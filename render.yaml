@@ -1,7 +1,0 @@
-- name: Backend
-  buildCommand: npm install
-  startCommand: nodemon app.js
-
-- name: Frontend
-  buildCommand: cd frontend && npm install && npm run build
-  startCommand: cd frontend && npm start
