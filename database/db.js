@@ -6,7 +6,7 @@ const USERNAME = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;
 
 const Connection = () => {
-    const MONGODB_URI = "mongodb+srv://mis959748:yowhatisup@cluster0.xtrmrdt.mongodb.net/";
+    const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.xtrmrdt.mongodb.net/`;
     mongoose.connect(MONGODB_URI);
     
     mongoose.connection.on('connected', () => {
