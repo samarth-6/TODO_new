@@ -22,8 +22,8 @@ app.get("/", (req, res) => {
 });
 Connection();
 
-const PORT = process.env.PORT || 1000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+
+app.listen(1000, () => {
+  console.log(`Server is running on port 1000`);
 });
 
