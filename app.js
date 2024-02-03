@@ -9,12 +9,8 @@ const path = require('path');
 app.use(express.json());
 app.use(cors());
 
-
-// Define your API routes
 app.use('/api/v1', auth);
 app.use('/api/v2', list);
-
-// Define the catch-all route to serve the index.html
 
 app.get("/", (req, res) => {
   app.use(express.static(path.resolve(__dirname, "frontend", "build")));
