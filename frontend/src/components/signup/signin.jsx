@@ -30,7 +30,13 @@ const Signin = () => {
     if (response.data) {
       sessionStorage.setItem("id", response.data.user._id); // Assuming user ID is at _id
       dispatch(authActions.login());
-      history("/todo");
+      //REload the page for useEffect of todo to fetch data from gettodopage
+      
+      setTimeout(()=>{
+        history("/todo");
+        window.location.reload();
+    },500)
+      
     } else {
       console.error("Unexpected response format:", response);
     }
