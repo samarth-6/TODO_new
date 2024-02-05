@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import './signup.css';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {useDispatch} from "react-redux"
 import {authActions} from '../../store'
@@ -13,6 +15,7 @@ const Signin = () => {
     email: "",
     password: "",
   });
+  const [errorMessage, setErrorMessage] = useState('');
   const change=(e)=>{
     const  {name,value}=e.target;
     // email: "yoyo@gmail.com", username: "wohooo", password: "nanana"  [name]->emaail:value->{Inputs.email}
@@ -26,6 +29,16 @@ const Signin = () => {
       Inputs
     );
     console.log("Response data:", response.data);
+    if(response.status===204){
+      console.log("Invalid password");
+      setErrorMessage('Password is Incorrect')
+    }
+    if(response.status===203){
+      console.log("please sign up first");
+      setErrorMessage('Please Sign Up first');
+      
+    }
+
 
     if (response.data) {
       sessionStorage.setItem("id", response.data.user._id); // Assuming user ID is at _id
@@ -54,6 +67,7 @@ const Signin = () => {
             <button className="btn-signup p-2" onClick={Submit}>
               Sign In
             </button>
+            {errorMessage &&(<p className="error-message">{errorMessage}</p>)}
           </div>
         </div>
       </div>

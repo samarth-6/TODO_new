@@ -22,13 +22,13 @@ router.post('/signin',async(req,res)=>{
         //check is user is already there or not if not then print that console message
         const user = await User.findOne({ email: req.body.email });
         if (!user) {
-           return res.status(200).json({ message: "Please Sign Up first" });
+           return res.status(203).json({ message: "Please Sign Up first" });
           // Add return to stop execution if user is not found
         }
       //compares pass of what that user is typing and that of the password associated with req.body.email
       const isPasswordCorrect = bcrypt.compareSync(req.body.password, user.password);
       if (!isPasswordCorrect) {
-          return res.status(200).json({ message: "Password is incorrect" });
+          return res.status(204).json({ message: "Password is incorrect" });
            // Add return to stop execution if password is incorrect
       }
       //password ke alawa username and email show karayega users ke doc se ...others matlab passowrd ke alawa
